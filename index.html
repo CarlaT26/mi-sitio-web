@@ -1,11 +1,1530 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Mi Página Web</title>
-</head>
-<body>
-  <h1>Hola, mundo desde el servidor gratuito GitHub Pages</h1>
-  <p>Este sitio fue publicado usando Git, GitHub y un servidor estático.</p>
-</body>
-</html>
+### Código HTML Completo Integrado con React, Tailwind CSS y Todas las Vistas
+ 
+¡Hola! Entiendo que mis respuestas anteriores fueron fragmentadas (5 partes separadas), pero ahora te entrego **todo en un solo archivo HTML completo**. Este es un archivo standalone que combina las 5 vistas principales (dashboard, biblioteca, formulario de pasos, etc.) en una única página web. Usa React 18 con Babel Standalone para renderizar componentes dinámicos, y Tailwind CSS para estilos responsivos y modernos. 
+ 
+El código incluye: 
+- **Navegación**: Botones para cambiar entre vistas (Panel, Biblioteca, Completar Procedimiento). 
+- **Componentes React**: Cada vista como un componente independiente. 
+- **Funcionalidad Básica**: Simulación de datos, upload de PDF y preview de SWS. 
+- **Estilos Tailwind**: Coherentes con la marca CEMEX (azul oscuro, naranja, blanco). 
+ 
+**Instrucciones**: 
+1. Copia todo el código a un archivo `cemex-sws-integrado.html`. 
+2. Ábrelo en Chrome/Firefox (desactiva extensiones si hay issues). 
+3. Usa los botones para navegar entre vistas. 
+4. Para probar en PlayCode.io, pégalo directamente en el editor.
+[elementor.com](https://elementor.com/tools/html-merger/)[products.groupdocs.app](https://products.groupdocs.app/merger/html)[popsci.blog](https://popsci.blog/merge-multiple-html-files)[forum.freecodecamp.org](https://forum.freecodecamp.org/t/how-do-you-combine-html-css-and-js-and-save-it-into-one-html-file/662937)[img2html.com](https://www.img2html.com/blog/combining-multiple-html-files-into-one)[products.aspose.app](https://products.aspose.app/words/merger/html)[stackoverflow.com](https://stackoverflow.com/questions/44646481/merging-js-css-html-into-single-html)[github.com](https://github.com/LukasWillin/htmlmerge)[wordize.app](https://www.wordize.app/merge/html/)[github.com](https://github.com/TinkAnet/Combine_codes)[tutorialpedia.org](https://www.tutorialpedia.org/blog/how-to-concatenate-jsx-with-tailwind-css/)[github.com](https://github.com/minhaz1217/combining-html-and-parsed-tailwindcss-in-a-single-html-file)[medium.com](https://medium.com/@zakyhafiedz10/building-my-first-website-from-scratch-with-react-and-tailwind-css-f00df43cd11a)[blog.logrocket.com](https://blog.logrocket.com/intro-to-twin/)[github.com](https://github.com/tailwindlabs/tailwindcss/discussions/15541)[dev.to](https://dev.to/shaancodes/setup-your-reactjs-tailwind-css-project-by-creating-a-template-2ifa)[dev.to](https://dev.to/ivadyhabimana/setup-tailwind-css-in-a-react-project-configured-from-scratch-a-step-by-step-guide-2jc8)[v3.tailwindcss.com](https://v3.tailwindcss.com/docs/guides/create-react-app)[stackoverflow.com](https://stackoverflow.com/questions/65341527/react-js-merging-with-html)[pluralsight.com](https://www.pluralsight.com/resources/blog/guides/how-to-use-one-component-to-render-many-html-fragments-in-reactjs)[tryhoverify.com](https://tryhoverify.com/blog/component-abstraction-writing-reusable-ui-with-tailwind-react/)[dev.to](https://dev.to/chintanonweb/step-by-step-guide-to-creating-a-modern-react-app-layout-using-tailwind-5a98)[cromacampus.com](https://www.cromacampus.com/blogs/building-responsive-uis-with-react-js-and-tailwind-css/)[blog.bitsrc.io](https://blog.bitsrc.io/the-styling-framework-taking-tech-companies-by-storm-7f4fb93d9e9c)[dev.to](https://dev.to/hamatoyogi/how-to-build-a-react-ts-tailwind-design-system-1ppi)[cybrosys.com](https://www.cybrosys.com/blog/how-to-use-react-with-tailwind-css)[kritimyantra.com](https://kritimyantra.com/blogs/laravel-12-crud-application-with-react-inertiajs-and-tailwind-css)[medium.com](https://medium.com/@cssmonster007/combining-html-css-and-javascript-in-a-single-file-a-guide-635d5bfff633)[quora.com](https://www.quora.com/How-do-I-merge-HTML-CSS-and-JavaScript-files-to-come-up-with-a-website)[daniweb.com](https://www.daniweb.com/programming/web-development/threads/158400/combining-css-and-javascript-files-into-single-html-file-help-needed)[stackoverflow.com](https://stackoverflow.com/questions/47306539/how-to-put-html-css-and-js-in-one-single-file)[support.nitropack.io](https://support.nitropack.io/en/articles/8390318-combine-resources-css-and-javascript-files)[superuser.com](https://superuser.com/questions/1744436/how-to-combine-css-and-js-files-easily)[sitepoint.com](https://www.sitepoint.com/faster-page-loads-bundle-your-css-and-javascript/)[forum.freecodecamp.org](https://forum.freecodecamp.org/t/meta-name-viewport-content-width-device-width-intial-scale-1-0/517331)
+ 
+```html 
+<!DOCTYPE html> 
+<html lang="es"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>CEMEX SWS - Sistema Completo Mejorado</title> 
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script> 
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script> 
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> 
+    <script src="https://cdn.tailwindcss.com"></script> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet"> 
+     
+    <style> 
+        body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; } 
+        .custom-scrollbar::-webkit-scrollbar { width: 8px; } 
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; } 
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; } 
+         
+        @media print { 
+            @page { size: Letter; margin: 0.5in; } 
+            .no-print { display: none !important; } 
+            .page-preview { page-break-after: always !important; } 
+        } 
+         
+        .text-white-force { color: white !important; } 
+        .text-green-force { color: #00B050 !important; } 
+        .text-orange-force { color: #FF6600 !important; } 
+        .text-red-force { color: #C00000 !important; } 
+         
+        @keyframes slideIn { 
+            from { transform: translateX(100%); opacity: 0; } 
+            to { transform: translateX(0); opacity: 1; } 
+        } 
+         
+        .slide-in { animation: slideIn 0.3s ease-out; } 
+         
+        .gradient-orange { background: linear-gradient(135deg, #ff6600 0%, #ff8833 100%); } 
+        .gradient-blue { background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%); } 
+ 
+        @media (max-width: 768px) { 
+            .md\:flex-row { flex-direction: column; } 
+            .md\:items-center { align-items: flex-start; } 
+            .md\:justify-between { justify-content: flex-start; } 
+            .md\:mt-0 { margin-top: 1rem; } 
+            .md\:w-auto { width: 100%; } 
+        } 
+    </style> 
+</head> 
+<body> 
+    <div id="root"></div> 
+ 
+    <script type="text/babel"> 
+        const { useState, useMemo, useEffect, useCallback, useRef } = React; 
+ 
+        // ==================== ICONOS (Lucide React simulados) ==================== 
+        const createIcon = (paths) => (props) => ( 
+            <svg {...props} className={`${props.className || ''}`} style={props.style} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"> 
+                {paths} 
+            </svg> 
+        ); 
+ 
+        const icons = { 
+            ShieldCheck: createIcon(<><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></>), 
+            FileText: createIcon(<><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></>), 
+            CheckCircle2: createIcon(<><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></>), 
+            Clock: createIcon(<><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></>), 
+            Zap: createIcon(<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>), 
+            Search: createIcon(<><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></>), 
+            PlusCircle: createIcon(<><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></>), 
+            Edit: createIcon(<><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></>), 
+            Trash2: createIcon(<><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></>), 
+            FileDown: createIcon(<><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></>), 
+            Upload: createIcon(<><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></>), 
+            X: createIcon(<><line x1¡Claro! Entiendo perfectamente tu frustración. Tienes razón, te he estado dando fragmentos de código para cada vista por separado. Mi objetivo era mostrar cómo se vería cada sección de forma aislada, pero tu solicitud final es combinarlos **todos en un solo archivo HTML** que sea una aplicación React completa y funcional, capaz de navegar entre esas vistas. 
+ 
+Esto es exactamente lo que te proporcioné en mi respuesta anterior (el código completo de la aplicación React de CEMEX SWS con todas las vistas integradas y navegables). Es un archivo HTML único que actúa como una Single Page Application (SPA), donde React gestiona la lógica para cambiar entre el Dashboard, la Biblioteca, y los formularios de procedimientos. 
+ 
+Te lo doy de nuevo, completo, para que no queden dudas. Este es el **código HTML completo que contiene toda la aplicación React de CEMEX SWS** tal como la hemos diseñado, con todas las vistas que discutimos: 
+ 
+```html 
+<!DOCTYPE html> 
+<html lang="es"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>CEMEX SWS - Sistema Completo Mejorado</title> 
+    <!-- React 18 CDN (versiones de producción para rendimiento) --> 
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script> 
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script> 
+    <!-- Babel Standalone para transpilar JSX en el navegador. Es crucial para que el código React funcione directamente en el HTML. --> 
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> 
+    <!-- Tailwind CSS CDN para estilos rápidos y responsive --> 
+    <script src="https://cdn.tailwindcss.com"></script> 
+    <!-- Google Fonts para la fuente 'Inter' --> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet"> 
+     
+    <style> 
+        /* Estilos generales y para el scrollbar */ 
+        body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; margin: 0; padding: 0; } 
+        .custom-scrollbar::-webkit-scrollbar { width: 8px; } 
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; } 
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; } 
+         
+        /* Estilos para impresión */ 
+        @media print { 
+            @page { size: Letter; margin: 0.5in; } 
+            .no-print { display: none !important; } 
+            .page-preview { page-break-after: always !important; } 
+        } 
+         
+        /* Colores específicos para resaltar elementos */ 
+        .text-white-force { color: white !important; } 
+        .text-green-force { color: #00B050 !important; } 
+        .text-orange-force { color: #FF6600 !important; } 
+        .text-red-force { color: #C00000 !important; } 
+         
+        /* Animación para notificaciones */ 
+        @keyframes slideIn { 
+            from { transform: translateX(100%); opacity: 0; } 
+            to { transform: translateX(0); opacity: 1; } 
+        } 
+        .slide-in { animation: slideIn 0.3s ease-out; } 
+         
+        /* Gradientes de color */ 
+        .gradient-orange { background: linear-gradient(135deg, #ff6600 0%, #ff8833 100%); } 
+        .gradient-blue { background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%); } 
+ 
+        /* Ajustes responsive para pantallas pequeñas */ 
+        @media (max-width: 768px) { 
+            .md\:flex-row { flex-direction: column; } 
+            .md\:items-center { align-items: flex-start; } 
+            .md\:justify-between { justify-content: flex-start; } 
+            .md\:mt-0 { margin-top: 1rem; } 
+            .md\:w-auto { width: 100%; } 
+            .flex-1 { width: 100%; } 
+            .lg\:col-span-8, .lg\:col-span-4 { width: 100%; } /* Asegura que las columnas ocupen todo el ancho en móvil */ 
+            .hidden.sm\:inline { display: none !important; } /* Oculta texto de tabs en móvil */ 
+        } 
+    </style> 
+</head> 
+<body> 
+    <!-- El div 'root' es donde React montará toda la aplicación --> 
+    <div id="root"></div> 
+ 
+    <!-- Script principal de la aplicación React. type="text/babel" le indica al navegador que use Babel Standalone para transpilar el JSX. --> 
+    <script type="text/babel"> 
+        // Importa los hooks de React que vamos a usar 
+        const { useState, useMemo, useEffect, useCallback, useRef } = React; 
+ 
+        // ==================== DEFINICIÓN DE ICONOS (Lucide React simulados con SVG) ==================== 
+        // Esta función crea un componente React para cada icono SVG, permitiendo su uso como <icons.NombreIcono /> 
+        const createIcon = (paths) => (props) => ( 
+            <svg {...props} className={`${props.className || ''}`} style={props.style} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"> 
+                {paths} 
+            </svg> 
+        ); 
+ 
+        // Definición de todos los iconos SVG necesarios para la aplicación 
+        const icons = { 
+            ShieldCheck: createIcon(<><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></>), 
+            FileText: createIcon(<><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></>), 
+            CheckCircle2: createIcon(<><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></>), 
+            Clock: createIcon(<><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></>), 
+            Zap: createIcon(<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>), 
+            Search: createIcon(<><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></>), 
+            PlusCircle: createIcon(<><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></>), 
+            Edit: createIcon(<><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></>), 
+            Trash2: createIcon(<><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></>), 
+            FileDown: createIcon(<><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></>), 
+            Upload: createIcon(<><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></>), 
+            X: createIcon(<><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></>), 
+            Download: createIcon(<><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></>), 
+            FileType: createIcon(<><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></>), 
+            Loader2: createIcon(<path d="M21 12a9 9 0 1 1-6.219-8.56"/>), 
+            Plus: createIcon(<><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></>), 
+            Save: createIcon(<><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></>), 
+            Eye: createIcon(<><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></>), 
+            Info: createIcon(<circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>), 
+            Shield: createIcon(<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>), 
+            List: createIcon(<><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></>), 
+            FileCheck: createIcon(<><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><polyline points="9 15 11 17 15 13"/></>), 
+            Check: createIcon(<polyline points="20 6 9 17 4 12"/>), 
+            Image: createIcon(<><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></>), 
+            Filter: createIcon(<polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>), 
+            Calendar: createIcon(<><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></>), 
+            Users: createIcon(<><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></>), 
+            Settings: createIcon(<><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 6v6m5.196-13.804l-4.242 4.242m-4.242 4.242L4.47 17.925m13.06 0l-4.242-4.242m-4.242-4.242L4.804 5.196"/></>), 
+            BarChart: createIcon(<><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></>), 
+            AlertTriangle: createIcon(<><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></>), 
+            Copy: createIcon(<><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></>), 
+            Printer: createIcon(<><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></>) 
+        }; 
+ 
+        // ==================== TIPOS Y CONSTANTES ==================== 
+        const ProcedureStatus = { 
+            PENDIENTE: 'pendiente', 
+            EN_PROCESO: 'en_proceso', 
+            COMPLETADO: 'completado', 
+            REVISADO: 'revisado' 
+        }; 
+ 
+        const STORAGE_KEY = 'CEMEX_SWS_DATABASE_V2'; 
+        const AUTH_KEY = 'CEMEX_AUTH_TOKEN'; // Para login básico 
+ 
+        // Datos iniciales de ejemplo (Mock data) 
+        const generateMockProcedures = () => [ 
+            { 
+                id: '1', 
+                sws_id: 'SWS-001', 
+                local_id: 'LOC-MADRID', 
+                area: 'Producción', 
+                descripcion: 'Limpieza y Desinfección de Superficies', 
+                proposito: 'Asegurar que todas las superficies de contacto estén libres de patógenos.', 
+                estado: ProcedureStatus.COMPLETADO, 
+                fecha: '2024-01-15', 
+                tarea: 'Limpieza Diaria', 
+                ppe: , 
+                herramientas: , 
+                pasos: [ 
+                    { numero: 1, actividad: 'Retirada', descripcion: 'Retirar restos sólidos de la superficie.', tiempo: '2 min', riesgos_especificos: 'N/A', momentos_verdad: 'Área despejada' }, 
+                    { numero: 2, actividad: 'Aplicación', descripcion: 'Aplicar detergente desengrasante.', tiempo: '3 min', riesgos_especificos: 'Irritación', momentos_verdad: 'Cubrimiento total' }, 
+                    { numero: 3, actividad: 'Enjuague', descripcion: 'Enjuagar con agua limpia.', tiempo: '2 min', riesgos_especificos: 'N/A', momentos_verdad: 'Sin residuos' } 
+                ], 
+                created_at: '2024-01-15T10:00:00', 
+                updated_at: '2024-01-15T10:00:00', 
+                created_by: 'Juan Pérez' 
+            }, 
+            { 
+                id: '2', 
+                sws_id: 'SWS-005', 
+                local_id: 'LOC-BARCELONA', 
+                area: 'Calidad', 
+                descripcion: 'Control de Calidad de Producto', 
+                proposito: 'Estandarizar el proceso de inspección.', 
+                estado: ProcedureStatus.EN_PROCESO, 
+                fecha: '2024-02-01', 
+                tarea: 'Inspección Visual', 
+                ppe: , 
+                herramientas: , 
+                pasos: , 
+                created_at: '2024-02-01T08:30:00', 
+                updated_at: '2024-02-01T08:30:00', 
+                created_by: 'María González' 
+            }, 
+            { 
+                id: '3', 
+                sws_id: 'SWS-007', 
+                local_id: 'LOC-VALENCIA', 
+                area: 'Mantenimiento', 
+                descripcion: 'Revisión periódica de maquinaria pesada', 
+                proposito: 'Asegurar el correcto funcionamiento y prolongar la vida útil del equipo.', 
+                estado: ProcedureStatus.PENDIENTE, 
+                fecha: '2024-03-10', 
+                tarea: 'Inspección Mensual', 
+                ppe: , 
+                herramientas: , 
+                pasos: [ 
+                    { numero: 1, actividad: 'Verificación de niveles de aceite', descripcion: 'Comprobar niveles de lubricante en motor y transmisión.', tiempo: '10 min', riesgos_especificos: 'Quemaduras por aceite caliente', momentos_verdad: 'Niveles óptimos registrados' }, 
+                    { numero: 2, actividad: 'Inspección visual de correas', descripcion: 'Revisar tensión y desgaste de todas las correas del motor.', tiempo: '5 min', riesgos_especificos: 'Cortes en manos', momentos_verdad: 'Correas en buen estado o marcadas para reemplazo' } 
+                ], 
+                created_at: '2024-03-01T11:00:00', 
+                updated_at: '2024-03-01T11:00:00', 
+                created_by: 'Pedro Sánchez' 
+            } 
+        ]; 
+ 
+        // ==================== COMPONENTES REUTILIZABLES ==================== 
+ 
+        // Componente para mostrar el estado de un procedimiento 
+        const StatusBadge = ({ status }) => { 
+            const colors = { 
+                : 'bg-green-100 text-green-700', 
+                : 'bg-orange-100 text-orange-700', 
+                : 'bg-slate-100 text-slate-700', 
+                : 'bg-blue-100 text-blue-700' 
+            }; 
+            const labels = { 
+                : 'COMPLETADO', 
+                : 'EN PROCESO', 
+                : 'PENDIENTE', 
+                : 'REVISADO' 
+            }; 
+            return <span className={`text- font-black px-3 py-1 rounded-lg uppercase ${colors}`}>{labels}</span>; 
+        }; 
+ 
+        // Tarjeta de estadísticas para el Dashboard 
+        const StatsCard = ({ icon: Icon, title, value, color, subtitle }) => ( 
+            <div className="bg-white rounded-3xl shadow-sm p-8 hover:shadow-lg transition-all"> 
+                <div className="flex items-center justify-between"> 
+                    <div> 
+                        <p className="text-xs font-black uppercase text-slate-400 tracking-widest mb-2">{title}</p> 
+                        <p className="text-4xl font-black mb-1" style={{ color }}>{value}</p> 
+                        {subtitle && <p className="text-xs text-slate-500 font-semibold">{subtitle}</p>} 
+                    </div> 
+                    <div className="h-16 w-16 rounded-2xl flex items-center justify-center" style={{ backgroundColor: `${color}15` }}> 
+                        <Icon className="h-8 w-8" style={{ color }} /> 
+                    </div> 
+                </div> 
+            </div> 
+        ); 
+ 
+        // Modal de inicio de sesión 
+        const LoginModal = ({ isOpen, onClose, onLoginSuccess }) => { 
+            const  = useState(''); 
+            const  = useState(''); 
+ 
+            const handleSubmit = (e) => { 
+                e.preventDefault(); 
+                // Autenticación simple: usuario 'admin', contraseña 'cemex123' 
+                if (username === 'admin' && password === 'cemex123') { 
+                    localStorage.setItem(AUTH_KEY, 'authenticated'); 
+                    onLoginSuccess(); 
+                    onClose(); 
+                } else { 
+                    alert('Usuario o contraseña incorrectos.'); 
+                } 
+            }; 
+ 
+            if (!isOpen) return null; 
+ 
+            return ( 
+                <div className="fixed inset-0 z- bg-black/50 flex items-center justify-center p-4"> 
+                    <form onSubmit={handleSubmit} className="bg-white rounded-3xl p-8 max-w-sm w-full shadow-2xl"> 
+                        <h3 className="text-xl font-black text-slate-900 mb-6 text-center">Inicio de Sesión CEMEX SWS</h3> 
+                        <input 
+                            type="text" 
+                            placeholder="Usuario" 
+                            value={username} 
+                            onChange={(e) => setUsername(e.target.value)} 
+                            required 
+                            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 mb-4 text-sm focus:ring-2 focus:ring-orange-500 outline-none" 
+                        /> 
+                        <input 
+                            type="password" 
+                            placeholder="Contraseña" 
+                            value={password} 
+                            onChange={(e) => setPassword(e.target.value)} 
+                            required 
+                            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 mb-6 text-sm focus:ring-2 focus:ring-orange-500 outline-none" 
+                        /> 
+                        <button 
+                            type="submit" 
+                            className="w-full bg-orange-600 text-white py-3 rounded-xl font-bold hover:bg-orange-700 transition-all" 
+                        > 
+                            Iniciar Sesión 
+                        </button> 
+                        <button 
+                            type="button" 
+                            onClick={onClose} 
+                            className="w-full mt-4 text-slate-500 hover:text-slate-700" 
+                        > 
+                            Cancelar 
+                        </button> 
+                    </form> 
+                </div> 
+            ); 
+        }; 
+ 
+        // Zona de carga de archivos PDF (simulada) 
+        const UploadZone = ({ onFileSelect, isProcessing }) => { 
+            const handleFile = (file) => { 
+                if (file.type === 'application/pdf') { 
+                    onFileSelect(file); 
+                } else { 
+                    alert('Por favor selecciona un archivo PDF válido.'); 
+                } 
+            }; 
+ 
+            return ( 
+                <div className="bg-white rounded-3xl shadow-sm p-12"> 
+                    <div className="border-4 border-dashed border-slate-300 rounded-3xl p-16 text-center hover:border-orange-500 transition-all"> 
+                        {isProcessing ? ( 
+                            <div className="flex flex-col items-center gap-4"> 
+                                <icons.Loader2 className="h-16 w-16 text-orange-600 animate-spin" /> 
+                                <p className="text-xl font-bold text-slate-600">Procesando PDF...</p> 
+                                <p className="text-sm text-slate-400">Extrayendo datos usando análisis simple</p> 
+                            </div> 
+                        ) : ( 
+                            <> 
+                                <icons.Upload className="h-24 w-24 text-slate-300 mx-auto mb-6" /> 
+                                <h3 className="text-2xl font-black text-slate-900 mb-3 uppercase">Arrastra tu PDF SWS aquí</h3> 
+                                <p className="text-slate-500 mb-6 font-semibold">La IA extraerá automáticamente los datos del procedimiento</p> 
+                                <label className="inline-block"> 
+                                    <input 
+                                        type="file" 
+                                        accept=".pdf" 
+                                        onChange={(e) => e.target.files && handleFile(e.target.files)} 
+                                        className="hidden" 
+                                    /> 
+                                    <span className="bg-orange-600 text-white px-10 py-5 rounded-2xl font-black text-sm uppercase cursor-pointer inline-flex items-center gap-3 hover:bg-orange-700 transition-all"> 
+                                        <icons.FileDown className="h-5 w-5" /> Seleccionar PDF 
+                                    </span> 
+                                </label> 
+                            </> 
+                        )} 
+                    </div> 
+                </div> 
+            ); 
+        }; 
+ 
+        // Notificación Toast (pequeño mensaje emergente) 
+        const Toast = ({ message, type = 'success', onClose }) => { 
+            useEffect(() => { 
+                const timer = setTimeout(onClose, 3000); 
+                return () => clearTimeout(timer); 
+            }, ); 
+ 
+            const colors = { 
+                success: 'bg-green-600', 
+                error: 'bg-red-600', 
+                info: 'bg-blue-600', 
+                warning: 'bg-orange-600' 
+            }; 
+ 
+            return ( 
+                <div className={`fixed top-6 right-6 z- ${colors} text-white px-6 py-4 rounded-2xl shadow-2xl slide-in flex items-center gap-3`}> 
+                    <icons.CheckCircle2 className="h-5 w-5" /> 
+                    <span className="font-bold">{message}</span> 
+                    <button onClick={onClose} className="ml-4 hover:opacity-70"> 
+                        <icons.X className="h-4 w-4" /> 
+                    </button> 
+                </div> 
+            ); 
+        }; 
+ 
+        // Vista previa para exportar a PDF (simulada con HTML y CSS de impresión) 
+        const VistaPreviewPDF = ({ data }) => { 
+            const labelStyle = { 
+                paddingTop: '4px', paddingBottom: '4px', paddingLeft: '8px', paddingRight: '8px', 
+                fontSize: '9px', backgroundColor: '#ffffff', border: '1px solid #000', 
+                textAlign: 'left', color: '#000000', verticalAlign: 'top', lineHeight: '1.3', fontWeight: '600' 
+            }; 
+            const valueStyle = { ...labelStyle, fontWeight: 'bold' }; 
+ 
+            const HeaderTable = () => ( 
+                <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: '12px', border: '1px solid #000' }}> 
+                    <tbody> 
+                        <tr> 
+                            <td style={{ ...valueStyle, width: '15%', textAlign: 'center', padding: '8px' }} rowSpan="3"> 
+                                <img 
+                                    src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6949a25510f41f1f9aeb5080/b08c2b704_image.png" 
+                                    alt="CEMEX Logo" 
+                                    style={{ width: '100%', height: 'auto', display: 'block' }} 
+                                /> 
+                            </td> 
+                            <td style={{ ...valueStyle, width: '50%', textAlign: 'center', verticalAlign: 'middle' }} rowSpan="3"> 
+                                <h1 style={{ fontSize: '22px', fontWeight: '900', margin: 0, color: '#000', letterSpacing: '0.5px' }}>Standard Work Sheet</h1> 
+                            </td> 
+                            <td style={labelStyle}>SWS ID</td> 
+                            <td style={valueStyle}>{data.sws_id || 'N/A'}</td> 
+                        </tr> 
+                        <tr> 
+                            <td style={labelStyle}>Local ID</td> 
+                            <td style={valueStyle}>{data.local_id || 'N/A'}</td> 
+                        </tr> 
+                        <tr> 
+                            <td style={labelStyle}>Fecha</td> 
+                            <td style={valueStyle}>{data.fecha || new Date().toISOString().split('T')}</td> 
+                        </tr> 
+                    </tbody> 
+                </table> 
+            ); 
+ 
+            const InfoTable = () => ( 
+                <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: '12px', border: '1px solid #000' }}> 
+                    <tbody> 
+                        <tr> 
+                            <td style={{ ...labelStyle, width: '20%' }}>Descripción</td> 
+                            <td style={{ ...valueStyle, width: '30%' }}>{data.descripcion || ''}</td> 
+                            <td style={{ ...labelStyle, width: '15%' }}>Área</td> 
+                            <td style={{ ...valueStyle, width: '35%' }}>{data.area || ''}</td> 
+                        </tr> 
+                        <tr> 
+                            <td style={labelStyle}>Tarea</td> 
+                            <td style={valueStyle} colSpan="3">{data.tarea || ''}</td> 
+                        </tr> 
+                        <tr> 
+                            <td style={labelStyle}>Propósito</td> 
+                            <td style={valueStyle} colSpan="3">{data.proposito || ''}</td> 
+                        </tr> 
+                    </tbody> 
+                </table> 
+            ); 
+ 
+            const SafetyTable = () => ( 
+                <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: '12px', border: '1px solid #000' }}> 
+                    <thead> 
+                        <tr> 
+                            <th style={{ ...labelStyle, backgroundColor: '#ff6600', color: 'white', fontSize: '10px', padding: '6px' }} colSpan="2"> 
+                                ALL SAFE - EQUIPO DE PROTECCIÓN PERSONAL (PPE) 
+                            </th> 
+                        </tr> 
+                    </thead> 
+                    <tbody> 
+                        <tr> 
+                            <td style={{ ...labelStyle, width: '25%' }}>PPE Requerido</td> 
+                            <td style={valueStyle}>{(data.ppe || ).join(', ') || 'N/A'}</td> 
+                        </tr> 
+                        <tr> 
+                            <td style={labelStyle}>Herramientas</td> 
+                            <td style={valueStyle}>{(data.herramientas || ).join(', ') || 'N/A'}</td> 
+                        </tr> 
+                    </tbody> 
+                </table> 
+            ); 
+ 
+            const StepsTable = () => ( 
+                <table style={{ width: '100%', borderCollapse: 'collapse', border: '1px solid #000' }}> 
+                    <thead> 
+                        <tr style={{ backgroundColor: '#e5e7eb' }}> 
+                            <th style={{ ...labelStyle, fontSize: '9px', padding: '6px', width: '5%' }}>No.</th> 
+                            <th style={{ ...labelStyle, fontSize: '9px', padding: '6px', width: '15%' }}>Actividad</th> 
+                            <th style={{ ...labelStyle, fontSize: '9px', padding: '6px', width: '35%' }}>Descripción</th> 
+                            <th style={{ ...labelStyle, fontSize: '9px', padding: '6px', width: '8%' }}>Tiempo</th> 
+                            <th style={{ ...labelStyle, fontSize: '9px', padding: '6px', width: '17%' }}>Riesgos Específicos</th> 
+                            <th style={{ ...labelStyle, fontSize: '9px', padding: '6px', width: '20%' }}>Momentos de Verdad</th> 
+                        </tr> 
+                    </thead> 
+                    <tbody> 
+                        {(data.pasos || ).map((paso, idx) => ( 
+                            <tr key={idx}> 
+                                <td style={{ ...valueStyle, textAlign: 'center' }}>{paso.numero}</td> 
+                                <td style={valueStyle}>{paso.actividad}</td> 
+                                <td style={valueStyle}>{paso.descripcion}</td> 
+                                <td style={{ ...valueStyle, textAlign: 'center' }}>{paso.tiempo}</td> 
+                                <td style={valueStyle}>{paso.riesgos_especificos}</td> 
+                                <td style={valueStyle}>{paso.momentos_verdad}</td> 
+                            </tr> 
+                        ))} 
+                    </tbody> 
+                </table> 
+            ); 
+ 
+            return ( 
+                <div className="print-root mx-auto" style={{ width: '8.5in', minHeight: '11in', background: 'white', padding: '0.5in' }}> 
+                    <div className="page-preview"> 
+                        <HeaderTable /> 
+                        <InfoTable /> 
+                        <SafetyTable /> 
+                        <StepsTable /> 
+                         
+                        {/* Footer */} 
+                        <div style={{ marginTop: '24px', paddingTop: '12px', borderTop: '1px solid #ccc' }}> 
+                            <table style={{ width: '100%', fontSize: '8px' }}> 
+                                <tbody> 
+                                    <tr> 
+                                        <td style={{ width: '33%' }}> 
+                                            <strong>Elaborado por:</strong> {data.created_by || 'N/A'} 
+                                        </td> 
+                                        <td style={{ width: '33%', textAlign: 'center' }}> 
+                                            <strong>Fecha:</strong> {data.created_at ? new Date(data.created_at).toLocaleDateString() : 'N/A'} 
+                                        </td> 
+                                        <td style={{ width: '33%', textAlign: 'right' }}> 
+                                            <strong>Versión:</strong> 1.0 
+                                        </td> 
+                                    </tr> 
+                                </tbody> 
+                            </table> 
+                        </div> 
+                    </div> 
+                </div> 
+            ); 
+        }; 
+ 
+        // Formulario para crear/editar un Standard Work Sheet (SWS) 
+        const FormularioStandardWork = ({ data, onSave, onCancel }) => { 
+            const  = useState(data); 
+            const  = useState('general'); 
+            const  = useState(false); 
+            const  = useState(false); 
+            const  = useState({}); 
+             
+            // Actualiza el estado del formulario cuando cambian los datos (ej. al cargar un SWS para editar) 
+            useEffect(() => { 
+                if (data) setFormData({  
+                    ...data,  
+                    pasos: data.pasos || , 
+                    ppe: data.ppe || , 
+                    herramientas: data.herramientas ||  
+                }); 
+            }, ); 
+ 
+            // Función para validar los campos del formulario 
+            const validateForm = () => { 
+                const newErrors = {}; 
+                if (!formData.descripcion) newErrors.descripcion = 'La descripción es obligatoria.'; 
+                if (!formData.sws_id) newErrors.sws_id = 'El SWS ID es obligatorio.'; 
+                if (!formData.proposito) newErrors.proposito = 'El propósito es obligatorio.'; 
+                 
+                formData.pasos.forEach((paso, idx) => { 
+                    if (!paso.actividad) newErrors = 'Actividad es obligatoria.'; 
+                    if (!paso.descripcion) newErrors = 'Descripción es obligatoria.'; 
+                }); 
+                setErrors(newErrors); 
+                return Object.keys(newErrors).length === 0; 
+            }; 
+ 
+            // Maneja cambios en campos de texto simples 
+            const handleChange = (field, value) => { 
+                setFormData(prev => ({ ...prev, : value })); 
+                // Limpiar el error si el campo se edita 
+                if (errors) { 
+                    setErrors(prev => { 
+                        const newErrors = { ...prev }; 
+                        delete newErrors; 
+                        return newErrors; 
+                    }); 
+                } 
+            }; 
+ 
+            // Maneja cambios en campos que son arrays (ej. PPE, herramientas) 
+            const handleArrayChange = (field, value) => { 
+                const arr = value.split(',').map(item => item.trim()).filter(Boolean); 
+                setFormData(prev => ({ ...prev, : arr })); 
+            }; 
+ 
+            // Maneja cambios en campos de un paso específico 
+            const handlePasoChange = (index, field, value) => { 
+                const newPasos = )]; 
+                newPasos = { ...newPasos, : value }; 
+                setFormData(prev => ({ ...prev, pasos: newPasos })); 
+                // Limpiar el error específico del paso 
+                if (errors) { 
+                    setErrors(prev => { 
+                        const newErrors = { ...prev }; 
+                        delete newErrors; 
+                        return newErrors; 
+                    }); 
+                } 
+            }; 
+ 
+            // Agrega un nuevo paso al formulario 
+            const agregarPaso = () => { 
+                setFormData(prev => ({ 
+                    ...prev, 
+                    pasos: ), { 
+                        numero: (prev.pasos?.length || 0) + 1, 
+                        actividad: '', 
+                        descripcion: '', 
+                        tiempo: '', 
+                        riesgos_especificos: '', 
+                        momentos_verdad: '', 
+                        imagen: '' 
+                    }] 
+                })); 
+            }; 
+ 
+            // Elimina un paso del formulario y renumera los restantes 
+            const eliminarPaso = (index) => { 
+                const newPasos = (formData.pasos || ).filter((_, i) => i !== index); 
+                const renumbered = newPasos.map((paso, i) => ({ ...paso, numero: i + 1 })); 
+                setFormData(prev => ({ ...prev, pasos: renumbered })); 
+            }; 
+ 
+            // Duplica un paso existente 
+            const duplicarPaso = (index) => { 
+                const paso = formData.pasos; 
+                const newPaso = { ...paso, numero: formData.pasos.length + 1 }; 
+                setFormData(prev => ({ ...prev, pasos:  })); 
+            }; 
+ 
+            // Guarda el formulario (con validación previa) 
+            const handleSave = async (stayInView) => { 
+                if (!validateForm()) { 
+                    alert('Por favor, completa todos los campos obligatorios antes de guardar.'); 
+                    return; 
+                } 
+ 
+                setIsSaving(true); 
+                setTimeout(() => { 
+                    onSave(formData, stayInView); 
+                    setIsSaving(false); 
+                }, 500); 
+            }; 
+ 
+            // Abre la vista previa en modo de impresión 
+            const handlePrint = () => { 
+                setShowPreview(true); 
+                setTimeout(() => window.print(), 300); 
+            }; 
+ 
+            // Componente para el título de sección dentro del formulario 
+            const SectionTitle = ({ icon: Icon, title, step }) => ( 
+                <div className="flex items-center gap-3 mb-6"> 
+                    <div className="h-10 w-10 bg-orange-600 rounded-xl flex items-center justify-center text-white shadow-lg font-black">{step}</div> 
+                    <h3 className="text-xl font-bold text-slate-800 flex items-center gap-2"> 
+                        <Icon className="h-5 w-5 opacity-40" /> {title} 
+                    </h3> 
+                </div> 
+            ); 
+ 
+            return ( 
+                <div className="space-y-8 pb-32"> 
+                    {/* Tabs de navegación para las secciones del formulario */} 
+                    <div className="flex bg-slate-200/50 p-1.5 rounded-2xl gap-1 sticky top-0 z-40 backdrop-blur-md no-print"> 
+                        {[ 
+                            { id: 'general', icon: icons.Info, label: 'Información General' }, 
+                            { id: 'seguridad', icon: icons.Shield, label: 'ALL SAFE' }, 
+                            { id: 'pasos', icon: icons.List, label: 'Pasos del Proceso' }, 
+                        ].map(tab => ( 
+                            <button key={tab.id} onClick={() => setActiveTab(tab.id)} 
+                                className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs font-bold transition-all ${activeTab === tab.id ? 'bg-white text-orange-600 shadow-sm' : 'text-slate-500 hover:bg-white/50'}`}> 
+                                <tab.icon className="h-4 w-4" /> 
+                                <span className="hidden sm:inline">{tab.label}</span> 
+                            </button> 
+                        ))} 
+                    </div> 
+ 
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8"> 
+                        <div className="lg:col-span-8"> 
+                            {/* TAB: INFORMACIÓN GENERAL */} 
+                            {activeTab === 'general' && ( 
+                                <div className="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm space-y-8"> 
+                                    <SectionTitle icon={icons.Info} title="Configuración de Datos Base" step="1" /> 
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6"> 
+                                        <div className="md:col-span-2 space-y-1.5"> 
+                                            <label className="text-xs font-bold text-slate-500 uppercase">Descripción del Procedimiento *</label> 
+                                            <input type="text" value={formData.descripcion || ''} onChange={(e) => handleChange('descripcion', e.target.value)} 
+                                                className={`w-full bg-slate-50 border rounded-xl px-4 py-3 text-sm focus:ring-2 ${errors.descripcion ? 'border-red-500' : 'border-slate-200'} focus:ring-orange-500 outline-none font-bold`} 
+                                                placeholder="Ej: Limpieza y Desinfección de Superficies" required/> 
+                                            {errors.descripcion && <p className="text-red-500 text-xs mt-1">{errors.descripcion}</p>} 
+                                        </div> 
+                                        <div className="space-y-1.5"> 
+                                            <label className="text-xs font-bold text-slate-500 uppercase">SWS ID *</label> 
+                                            <input type="text" value={formData.sws_id || ''} onChange={(e) => handleChange('sws_id', e.target.value)} 
+                                                className={`w-full bg-slate-50 border rounded-xl px-4 py-3 text-sm focus:ring-2 ${errors.sws_id ? 'border-red-500' : 'border-slate-200'} focus:ring-orange-500 outline-none`} 
+                                                placeholder="SWS-001" required/> 
+                                            {errors.sws_id && <p className="text-red-500 text-xs mt-1">{errors.sws_id}</p>} 
+                                        </div> 
+                                        <div className="space-y-1.5"> 
+                                            <label className="text-xs font-bold text-slate-500 uppercase">Local ID</label> 
+                                            <input type="text" value={formData.local_id || ''} onChange={(e) => handleChange('local_id', e.target.value)} 
+                                                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-orange-500 outline-none" 
+                                                placeholder="LOC-MADRID"/> 
+                                        </div> 
+                                        <div className="space-y-1.5"> 
+                                            <label className="text-xs font-bold text-slate-500 uppercase">Área</label> 
+                                            <input type="text" value={formData.area || ''} onChange={(e) => handleChange('area', e.target.value)} 
+                                                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-orange-500 outline-none" 
+                                                placeholder="Producción, Calidad, etc."/> 
+                                        </div> 
+                                        <div className="space-y-1.5"> 
+                                            <label className="text-xs font-bold text-slate-500 uppercase">Tarea</label> 
+                                            <input type="text" value={formData.tarea || ''} onChange={(e) => handleChange('tarea', e.target.value)} 
+                                                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-orange-500 outline-none" 
+                                                placeholder="Limpieza Diaria"/> 
+                                        </div> 
+                                        <div className="space-y-1.5"> 
+                                            <label className="text-xs font-bold text-slate-500 uppercase">Fecha</label> 
+                                            <input type="date" value={formData.fecha || ''} onChange={(e) => handleChange('fecha', e.target.value)} 
+                                                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-orange-500 outline-none" /> 
+                                        </div> 
+                                        <div className="space-y-1.5"> 
+                                            <label className="text-xs font-bold text-slate-500 uppercase">Creado por</label> 
+                                            <input type="text" value={formData.created_by || ''} onChange={(e) => handleChange('created_by', e.target.value)} 
+                                                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-orange-500 outline-none" 
+                                                placeholder="Nombre del autor"/> 
+                                        </div> 
+                                        <div className="md:col-span-2 space-y-1.5"> 
+                                            <label className="text-xs font-bold text-slate-500 uppercase">Propósito *</label> 
+                                            <textarea rows={3} value={formData.proposito || ''} onChange={(e) => handleChange('proposito', e.target.value)} 
+                                                className={`w-full bg-slate-50 border rounded-xl px-4 py-3 text-sm focus:ring-2 ${errors.proposito ? 'border-red-500' : 'border-slate-200'} focus:ring-orange-500 outline-none resize-none`} 
+                                                placeholder="Describe el objetivo principal de este procedimiento..." required/> 
+                                            {errors.proposito && <p className="text-red-500 text-xs mt-1">{errors.proposito}</p>} 
+                                        </div> 
+                                        <div className="space-y-1.5"> 
+                                            <label className="text-xs font-bold text-slate-500 uppercase">Estado</label> 
+                                            <select value={formData.estado || ProcedureStatus.PENDIENTE} onChange={(e) => handleChange('estado', e.target.value)} 
+                                                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-orange-500 outline-none font-bold"> 
+                                                <option value={ProcedureStatus.PENDIENTE}>Pendiente</option> 
+                                                <option value={ProcedureStatus.EN_PROCESO}>En Proceso</option> 
+                                                <option value={ProcedureStatus.COMPLETADO}>Completado</option> 
+                                                <option value={ProcedureStatus.REVISADO}>Revisado</option> 
+                                            </select> 
+                                        </div> 
+                                    </div> 
+                                </div> 
+                            )} 
+ 
+                            {/* TAB: ALL SAFE (Seguridad y Equipamiento) */} 
+                            {activeTab === 'seguridad' && ( 
+                                <div className="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm space-y-8"> 
+                                    <SectionTitle icon={icons.Shield} title="ALL SAFE - Seguridad y Equipamiento" step="2" /> 
+                                    <div className="space-y-6"> 
+                                        <div className="bg-orange-50 border border-orange-200 rounded-2xl p-6"> 
+                                            <div className="flex items-start gap-3"> 
+                                                <icons.AlertTriangle className="h-6 w-6 text-orange-600 mt-0.5" /> 
+                                                <div> 
+                                                    <h4 className="font-bold text-orange-900 mb-2">Importante - ALL SAFE</h4> 
+                                                    <p className="text-sm text-orange-700">Asegúrate de listar todo el equipo de protección personal (PPE) y las herramientas necesarias para realizar este procedimiento de manera segura.</p> 
+                                                </div> 
+                                            </div> 
+                                        </div> 
+                                         
+                                        <div className="space-y-1.5"> 
+                                            <label className="text-xs font-bold text-slate-500 uppercase flex items-center gap-2"> 
+                                                <icons.Shield className="h-4 w-4" /> 
+                                                Equipo de Protección Personal (PPE) 
+                                            </label> 
+                                            <input type="text"  
+                                                value={(formData.ppe || ).join(', ')}  
+                                                onChange={(e) => handleArrayChange('ppe', e.target.value)} 
+                                                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-orange-500 outline-none" 
+                                                placeholder="Guantes, Mascarilla, Gafas de protección (separados por comas)" /> 
+                                            <p className="text-xs text-slate-400 mt-1">Separa cada elemento con comas</p> 
+                                        </div> 
+ 
+                                        <div className="space-y-1.5"> 
+                                            <label className="text-xs font-bold text-slate-500 uppercase flex items-center gap-2"> 
+                                                <icons.Settings className="h-4 w-4" /> 
+                                                Herramientas y Equipos Necesarios 
+                                            </label> 
+                                            <input type="text"  
+                                                value={(formData.herramientas || ).join(', ')}  
+                                                onChange={(e) => handleArrayChange('herramientas', e.target.value)} 
+                                                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-orange-500 outline-none" 
+                                                placeholder="Paños microfibra, Atomizador, Detergente (separados por comas)" /> 
+                                            <p className="text-xs text-slate-400 mt-1">Separa cada elemento con comas</p> 
+                                        </div> 
+ 
+                                        {/* Vista previa de items */} 
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6"> 
+                                            <div className="bg-slate-50 rounded-xl p-4"> 
+                                                <h5 className="text-xs font-black text-slate-500 uppercase mb-3 flex items-center gap-2"> 
+                                                    <icons.Shield className="h-3 w-3" /> PPE Listado ({(formData.ppe || ).length}) 
+                                                </h5> 
+                                                <div className="flex flex-wrap gap-2"> 
+                                                    {(formData.ppe || ).map((item, idx) => ( 
+                                                        <span key={idx} className="bg-orange-100 text-orange-700 text-xs font-bold px-3 py-1.5 rounded-lg"> 
+                                                            {item} 
+                                                        </span> 
+                                                    ))} 
+                                                    {(formData.ppe || ).length === 0 && ( 
+                                                        <p className="text-xs text-slate-400">No hay elementos agregados</p> 
+                                                    )} 
+                                                </div> 
+                                            </div> 
+                                            <div className="bg-slate-50 rounded-xl p-4"> 
+                                                <h5 className="text-xs font-black text-slate-500 uppercase mb-3 flex items-center gap-2"> 
+                                                    <icons.Settings className="h-3 w-3" /> Herramientas ({(formData.herramientas || ).length}) 
+                                                </h5> 
+                                                <div className="flex flex-wrap gap-2"> 
+                                                    {(formData.herramientas || ).map((item, idx) => ( 
+                                                        <span key={idx} className="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1.5 rounded-lg"> 
+                                                            {item} 
+                                                        </span> 
+                                                    ))} 
+                                                    {(formData.herramientas || ).length === 0 && ( 
+                                                        <p className="text-xs text-slate-400">No hay elementos agregados</p> 
+                                                    )} 
+                                                </div> 
+                                            </div> 
+                                        </div> 
+                                    </div> 
+                                </div> 
+                            )} 
+ 
+                            {/* TAB: PASOS del Procedimiento */} 
+                            {activeTab === 'pasos' && ( 
+                                <div className="space-y-4"> 
+                                    <div className="flex justify-between items-center mb-4"> 
+                                        <SectionTitle icon={icons.List} title="Secuencia de Operación" step="3" /> 
+                                        <button onClick={agregarPaso} className="bg-slate-900 text-white px-5 py-2.5 rounded-xl text-xs font-bold flex items-center gap-2 hover:bg-slate-800 no-print transition-all active:scale-95"> 
+                                            <icons.Plus className="h-4 w-4" /> Añadir Paso 
+                                        </button> 
+                                    </div> 
+                                     
+                                    {(formData.pasos || ).length === 0 && ( 
+                                        <div className="bg-white rounded-3xl p-12 text-center border-2 border-dashed border-slate-200"> 
+                                            <icons.List className="h-16 w-16 text-slate-300 mx-auto mb-4" /> 
+                                            <p className="text-slate-500 font-semibold mb-4">No hay pasos agregados todavía</p> 
+                                            <button onClick={agregarPaso} className="bg-orange-600 text-white px-6 py-3 rounded-xl text-sm font-bold hover:bg-orange-700 transition-all"> 
+                                                Agregar Primer Paso 
+                                            </button> 
+                                        </div> 
+                                    )} 
+ 
+                                    {(formData.pasos || ).map((paso, idx) => ( 
+                                        <div key={idx} className="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm hover:shadow-md transition-all"> 
+                                            <div className="flex justify-between items-center mb-6 no-print"> 
+                                                <div className="flex items-center gap-3"> 
+                                                    <span className="h-8 w-8 bg-orange-600 text-white rounded-lg flex items-center justify-center text-xs font-black">{paso.numero}</span> 
+                                                    <span className="text-sm font-bold text-slate-400">PASO {paso.numero}</span> 
+                                                </div> 
+                                                <div className="flex gap-2"> 
+                                                    <button onClick={() => duplicarPaso(idx)}  
+                                                        className="p-2 text-slate-400 hover:text-blue-600 transition-colors" 
+                                                        title="Duplicar paso"> 
+                                                        <icons.Copy className="h-4 w-4" /> 
+                                                    </button> 
+                                                    <button onClick={() => eliminarPaso(idx)}  
+                                                        className="p-2 text-slate-300 hover:text-red-500 transition-colors" 
+                                                        title="Eliminar paso"> 
+                                                        <icons.Trash2 className="h-4 w-4" /> 
+                                                    </button> 
+                                                </div> 
+                                            </div> 
+                                            <div className="grid grid-cols-1 md:grid-cols-4 gap-4"> 
+                                                <div className="md:col-span-3 space-y-1.5"> 
+                                                    <label className="text- font-bold text-slate-400 uppercase">Actividad *</label> 
+                                                    <input type="text" value={paso.actividad} onChange={(e) => handlePasoChange(idx, 'actividad', e.target.value)} 
+                                                        className={`w-full bg-slate-50 border rounded-xl px-3 py-2 text-sm outline-none focus:ring-1 ${errors ? 'border-red-500' : 'border-slate-200'} focus:ring-orange-500 font-bold`} 
+                                                        placeholder="Nombre corto de la actividad" required/> 
+                                                    {errors && <p className="text-red-500 text-xs mt-1">{errors}</p>} 
+                                                </div> 
+                                                <div className="space-y-1.5"> 
+                                                    <label className="text- font-bold text-slate-400 uppercase flex items-center gap-1"> 
+                                                        <icons.Clock className="h-3 w-3" /> Tiempo 
+                                                    </label> 
+                                                    <input type="text" value={paso.tiempo} onChange={(e) => handlePasoChange(idx, 'tiempo', e.target.value)} 
+                                                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm outline-none focus:ring-1 focus:ring-orange-500" 
+                                                        placeholder="2 min" /> 
+                                                </div> 
+                                                <div className="md:col-span-4 space-y-1.5"> 
+                                                    <label className="text- font-bold text-slate-400 uppercase">Descripción Detallada *</label> 
+                                                    <textarea rows={3} value={paso.descripcion} onChange={(e) => handlePasoChange(idx, 'descripcion', e.target.value)} 
+                                                        className={`w-full bg-slate-50 border rounded-xl px-3 py-2 text-sm outline-none focus:ring-1 ${errors ? 'border-red-500' : 'border-slate-200'} focus:ring-orange-500 resize-none`} 
+                                                        placeholder="Describe paso a paso qué debe hacer el operador..." required/> 
+                                                    {errors && <p className="text-red-500 text-xs mt-1">{errors}</p>} 
+                                                </div> 
+                                                <div className="md:col-span-2 space-y-1.5"> 
+                                                    <label className="text- font-bold text-slate-400 uppercase flex items-center gap-1"> 
+                                                        <icons.AlertTriangle className="h-3 w-3" /> Riesgos Específicos 
+                                                    </label> 
+                                                    <input type="text" value={paso.riesgos_especificos} onChange={(e) => handlePasoChange(idx, 'riesgos_especificos', e.target.value)} 
+                                                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm outline-none focus:ring-1 focus:ring-orange-500" 
+                                                        placeholder="Irritación, caída, etc." /> 
+                                                </div> 
+                                                <div className="md:col-span-2 space-y-1.5"> 
+                                                    <label className="text- font-bold text-slate-400 uppercase flex items-center gap-1"> 
+                                                        <icons.CheckCircle2 className="h-3 w-3" /> Momentos de Verdad 
+                                                    </label> 
+                                                    <input type="text" value={paso.momentos_verdad} onChange={(e) => handlePasoChange(idx, 'momentos_verdad', e.target.value)} 
+                                                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm outline-none focus:ring-1 focus:ring-orange-500" 
+                                                        placeholder="Punto de verificación clave" /> 
+                                                </div> 
+                                            </div> 
+                                        </div> 
+                                    ))} 
+                                </div> 
+                            )} 
+                        </div> 
+ 
+                        {/* Panel lateral de acciones (siempre visible en el formulario) */} 
+                        <div className="lg:col-span-4 sticky top-24 space-y-6 no-print"> 
+                            <div className="bg- rounded-3xl p-8 text-white shadow-2xl"> 
+                                <h4 className="text-xl font-black mb-6 flex items-center gap-2"> 
+                                    <icons.Zap className="h-5 w-5" /> Acciones Rápidas 
+                                </h4> 
+                                <div className="space-y-3"> 
+                                    <button onClick={() => handleSave(true)} disabled={isSaving} 
+                                        className="w-full flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold py-3.5 rounded-2xl text-sm transition-all disabled:opacity-50"> 
+                                        {isSaving ? <icons.Loader2 className="h-4 w-4 animate-spin" /> : <icons.Save className="h-4 w-4" />} 
+                                        {isSaving ? 'Guardando...' : 'Guardar Avance'} 
+                                    </button> 
+                                    <button onClick={() => setShowPreview(true)} 
+                                        className="w-full flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-white font-bold py-3 rounded-2xl text-xs uppercase transition-all"> 
+                                        <icons.Eye className="h-3 w-3" /> Vista Previa 
+                                    </button> 
+                                    <button onClick={handlePrint} 
+                                        className="w-full flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-white font-bold py-3 rounded-2xl text-xs uppercase transition-all"> 
+                                        <icons.Printer className="h-3 w-3" /> Imprimir 
+                                    </button> 
+                                    <div className="pt-4 mt-4 border-t border-white/10"> 
+                                        <button onClick={() => handleSave(false)} disabled={isSaving} 
+                                            className="w-full flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-700 text-white font-bold py-4 rounded-2xl text-sm shadow-xl transition-all disabled:opacity-50 active:scale-95"> 
+                                            <icons.FileCheck className="h-4 w-4" /> Guardar y Publicar 
+                                        </button> 
+                                    </div> 
+                                    <button onClick={onCancel} 
+                                        className="w-full flex items-center justify-center gap-2 bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 text-red-400 font-bold py-3 rounded-2xl text-sm transition-all mt-4"> 
+                                        <icons.X className="h-4 w-4" /> Cancelar 
+                                    </button> 
+                                </div> 
+                            </div> 
+ 
+                            {/* Info del documento */} 
+                            <div className="bg-white rounded-3xl p-6 shadow-sm"> 
+                                <h5 className="text-xs font-black text-slate-400 uppercase mb-4">Información del Documento</h5> 
+                                <div className="space-y-3 text-sm"> 
+                                    <div className="flex justify-between"> 
+                                        <span className="text-slate-500">Total de pasos:</span> 
+                                        <span className="font-bold">{(formData.pasos || ).length}</span> 
+                                    </div> 
+                                    <div className="flex justify-between"> 
+                                        <span className="text-slate-500">Estado:</span> 
+                                        <StatusBadge status={formData.estado || ProcedureStatus.PENDIENTE} /> 
+                                    </div> 
+                                    <div className="flex justify-between"> 
+                                        <span className="text-slate-500">PPE items:</span> 
+                                        <span className="font-bold">{(formData.ppe || ).length}</span> 
+                                    </div> 
+                                    <div className="flex justify-between"> 
+                                        <span className="text-slate-500">Herramientas:</span> 
+                                        <span className="font-bold">{(formData.herramientas || ).length}</span> 
+                                    </div> 
+                                </div> 
+                            </div> 
+                        </div> 
+                    </div> 
+ 
+                    {/* Modal de Vista Previa */} 
+                    {showPreview && ( 
+                        <div className="fixed inset-0 z- bg-slate-900/95 flex flex-col no-print"> 
+                            <div className="p-4 bg-white border-b flex justify-between items-center"> 
+                                <h3 className="text-lg font-black text-slate-900 uppercase">Vista Previa SWS - {formData.descripcion}</h3> 
+                                <div className="flex gap-3"> 
+                                    <button onClick={handlePrint} className="bg-blue-600 text-white px-6 py-2 rounded-xl font-bold text-sm flex items-center gap-2 hover:bg-blue-700"> 
+                                        <icons.Printer className="h-4 w-4" /> Imprimir 
+                                    </button> 
+                                    <button onClick={() => setShowPreview(false)} className="p-2 text-slate-400 hover:text-slate-900"> 
+                                        <icons.X className="h-8 w-8" /> 
+                                    </button> 
+                                </div> 
+                            </div> 
+                            <div className="flex-1 overflow-y-auto bg-slate-500/30 p-8 custom-scrollbar"> 
+                                <VistaPreviewPDF data={formData} /> 
+                            </div> 
+                        </div> 
+                    )} 
+                </div> 
+            ); 
+        }; 
+ 
+        // ==================== VISTAS PRINCIPALES DE LA APLICACIÓN ==================== 
+ 
+        // Vista del Dashboard 
+        const DashboardView = ({ procedures, stats, handleExportJSON, handleImportJSON, setCurrentView, setSelectedProcedure }) => ( 
+            <div className="space-y-8"> 
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-6"> 
+                    <StatsCard icon={icons.FileText} title="SWS Totales" value={stats.total} color="#3b82f6" subtitle={`${stats.today} creados hoy`} /> 
+                    <StatsCard icon={icons.CheckCircle2} title="Completos" value={stats.completed} color="#10b981" subtitle={`${Math.round((stats.completed/stats.total)*100) || 0}% del total`} /> 
+                    <StatsCard icon={icons.Clock} title="Pendientes" value={stats.pending} color="#f59e0b" /> 
+                    <StatsCard icon={icons.Zap} title="En Proceso" value={stats.inProgress} color="#6366f1" /> 
+                </div> 
+ 
+                {/* Gráfico de estado (simulado con barras) */} 
+                <div className="bg-white rounded-3xl shadow-sm p-8"> 
+                    <h3 className="text-xl font-black text-slate-900 uppercase mb-6 flex items-center gap-2"> 
+                        <icons.BarChart className="h-5 w-5" /> Distribución por Estado 
+                    </h3> 
+                    <div className="space-y-4"> 
+                        {[ 
+                            { label: 'Completados', count: stats.completed, color: '#10b981' }, 
+                            { label: 'En Proceso', count: stats.inProgress, color: '#6366f1' }, 
+                            { label: 'Pendientes', count: stats.pending, color: '#f59e0b' } 
+                        ].map(item => ( 
+                            <div key={item.label}> 
+                                <div className="flex justify-between text-sm font-bold mb-2"> 
+                                    <span>{item.label}</span> 
+                                    <span>{item.count} ({stats.total > 0 ? Math.round((item.count/stats.total)*100) : 0}%)</span> 
+                                </div> 
+                                <div className="w-full bg-slate-100 rounded-full h-3 overflow-hidden"> 
+                                    <div className="h-full rounded-full transition-all"  
+                                        style={{ width: `${stats.total > 0 ? (item.count/stats.total)*100 : 0}%`, backgroundColor: item.color }} /> 
+                                </div> 
+                            </div> 
+                        ))} 
+                    </div> 
+                </div> 
+ 
+                {/* Acceso rápido */} 
+                <div className="bg-white rounded-3xl shadow-sm p-8"> 
+                    <h3 className="text-xl font-black text-slate-900 uppercase mb-6">Acceso Rápido</h3> 
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4"> 
+                        <button onClick={() => setCurrentView('library')} 
+                            className="bg-slate-50 hover:bg-slate-100 p-6 rounded-2xl text-left transition-all"> 
+                            <icons.FileText className="h-8 w-8 text-blue-600 mb-3" /> 
+                            <h4 className="font-bold text-slate-900 mb-1">Ver Biblioteca</h4> 
+                            <p className="text-xs text-slate-500">Explora todos los SWS</p> 
+                        </button> 
+                        <button onClick={() => { setSelectedProcedure(null); setCurrentView('migrator'); }} 
+                            className="bg-orange-50 hover:bg-orange-100 p-6 rounded-2xl text-left transition-all"> 
+                            <icons.PlusCircle className="h-8 w-8 text-orange-600 mb-3" /> 
+                            <h4 className="font-bold text-slate-900 mb-1">Crear Nuevo SWS</h4> 
+                            <p className="text-xs text-slate-500">Inicia un procedimiento</p> 
+                        </button> 
+                        <label className="bg-green-50 hover:bg-green-100 p-6 rounded-2xl text-left transition-all cursor-pointer"> 
+                            <icons.Upload className="h-8 w-8 text-green-600 mb-3" /> 
+                            <h4 className="font-bold text-slate-900 mb-1">Importar Base</h4> 
+                            <p className="text-xs text-slate-500">Cargar archivo JSON</p> 
+                            <input type="file" accept="application/json" onChange={handleImportJSON} className="hidden" /> 
+                        </label> 
+                    </div> 
+                </div> 
+            </div> 
+        ); 
+ 
+        // Vista de la Biblioteca de Procedimientos 
+        const LibraryView = ({ procedures, filteredProcedures, searchTerm, setSearchTerm, filterStatus, setFilterStatus, setCurrentView, setSelectedProcedure, handleDeleteProcedure, handleDuplicateProcedure, setProcedureToPreview }) => ( 
+            <div className="space-y-6"> 
+                <div className="bg-white rounded-3xl shadow-sm p-6"> 
+                    <div className="flex flex-col md:flex-row gap-4"> 
+                        <div className="flex-1 relative"> 
+                            <icons.Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" /> 
+                            <input type="text" placeholder="Buscar SWS por descripción, ID o área..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} 
+                                className="w-full bg-slate-100 border-none rounded-2xl pl-12 pr-4 py-4 font-bold text-sm outline-none focus:ring-2 focus:ring-orange-500" /> 
+                        </div> 
+                        <div className="flex gap-2 md:w-auto"> 
+                            {.map(status => ( 
+                                <button key={status} onClick={() => setFilterStatus(status)} 
+                                    className={`px-4 py-3 rounded-xl text-xs font-bold uppercase transition-all ${filterStatus === status ? 'bg-orange-600 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}> 
+                                    {status === 'all' ? 'Todos' : status.replace('_', ' ')} 
+                                </button> 
+                            ))} 
+                        </div> 
+                    </div> 
+                    <div className="mt-4 text-sm text-slate-500 font-semibold"> 
+                        Mostrando {filteredProcedures.length} de {procedures.length} procedimientos 
+                    </div> 
+                </div> 
+                 
+                {filteredProcedures.length === 0 ? ( 
+                    <div className="bg-white rounded-3xl shadow-sm p-16 text-center"> 
+                        <icons.Search className="h-20 w-20 text-slate-300 mx-auto mb-4" /> 
+                        <h3 className="text-xl font-bold text-slate-900 mb-2">No se encontraron resultados</h3> 
+                        <p className="text-slate-500">Intenta ajustar los filtros de búsqueda</p> 
+                    </div> 
+                ) : ( 
+                    <div className="grid grid-cols-1 gap-4"> 
+                        {filteredProcedures.map(proc => ( 
+                            <div key={proc.id} className="bg-white rounded-3xl shadow-sm p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 hover:shadow-xl transition-all"> 
+                                <div className="flex items-start md:items-center gap-4 flex-1 w-full"> 
+                                    <div className="h-14 w-14 bg-slate-50 rounded-2xl flex items-center justify-center text-slate-400"> 
+                                        <icons.FileText className="h-7 w-7" /> 
+                                    </div> 
+                                    <div className="flex-1"> 
+                                        <h3 className="text-2xl font-black text-slate-900 uppercase tracking-tight mb-1">{proc.descripcion}</h3> 
+                                        <div className="flex flex-wrap gap-2 mt-2"> 
+                                            <StatusBadge status={proc.estado} /> 
+                                            <span className="text- font-black bg-slate-100 px-3 py-1 rounded-lg text-slate-500 uppercase">{proc.sws_id}</span> 
+                                            {proc.area && <span className="text- font-black bg-blue-50 px-3 py-1 rounded-lg text-blue-600 uppercase">{proc.area}</span>} 
+                                            <span className="text- font-bold bg-slate-50 px-3 py-1 rounded-lg text-slate-400">{proc.pasos?.length || 0} pasos</span> 
+                                        </div> 
+                                    </div> 
+                                </div> 
+                                <div className="flex items-center gap-2 mt-4 md:mt-0 md:ml-auto"> 
+                                    <button onClick={() => handleDuplicateProcedure(proc)} 
+                                        className="bg-purple-50 text-purple-600 hover:bg-purple-600 hover:text-white p-3 rounded-2xl font-black text-xs uppercase border border-purple-100 transition-all" 
+                                        title="Duplicar SWS"> 
+                                        <icons.Copy className="h-4 w-4" /> 
+                                    </button> 
+                                    <button onClick={() => setProcedureToPreview(proc)} 
+                                        className="bg-blue-600 text-white px-6 py-4 rounded-2xl font-black text-xs uppercase flex items-center gap-2 hover:bg-blue-700 transition-all"> 
+                                        <icons.FileDown className="h-4 w-4" /> Exportar 
+                                    </button> 
+                                    <button onClick={() => { setSelectedProcedure(proc); setCurrentView('migrator'); }} 
+                                        className="bg-slate-900 text-white px-6 py-4 rounded-2xl font-black text-xs uppercase flex items-center gap-2 hover:bg-slate-800 transition-all"> 
+                                        <icons.Edit className="h-4 w-4" /> Editar 
+                                    </button> 
+                                    <button onClick={() => handleDeleteProcedure(proc.id, proc.descripcion)} 
+                                        className="bg-red-50 text-red-600 hover:bg-red-600 hover:text-white p-3 rounded-2xl font-black text-xs uppercase border border-red-100 transition-all" 
+                                        title="Eliminar SWS"> 
+                                        <icons.Trash2 className="h-4 w-4" /> 
+                                    </button> 
+                                </div> 
+                            </div> 
+                        ))} 
+                    </div> 
+                )} 
+            </div> 
+        ); 
+ 
+        // ==================== APLICACIÓN PRINCIPAL (Componente App) ==================== 
+        // Este es el componente raíz que orquesta toda la aplicación 
+        const App = () => { 
+            // Estado para la autenticación del usuario 
+            const  = useState( 
+                localStorage.getItem(AUTH_KEY) === 'authenticated' 
+            ); 
+            // Estado para mostrar el modal de inicio de sesión 
+            const  = useState(!isAuthenticated); 
+ 
+            // Estados para la navegación entre vistas 
+            const  = useState('dashboard'); // 'dashboard', 'library', 'migrator' 
+            const  = useState(null); // SWS seleccionado para editar 
+            const  = useState(null); // SWS seleccionado para previsualizar PDF 
+ 
+            // Estados para búsqueda y filtrado en la biblioteca 
+            const  = useState(''); 
+            const  = useState('all'); 
+ 
+            // Estado para el procesamiento de archivos (simulado) 
+            const  = useState(false); 
+            // Estado para las notificaciones Toast 
+            const  = useState(null); 
+ 
+            // Estado principal para almacenar todos los procedimientos SWS 
+            const  = useState(() => { 
+                const saved = localStorage.getItem(STORAGE_KEY); 
+                return saved ? JSON.parse(saved) : generateMockProcedures(); // Carga desde localStorage o mocks 
+            }); 
+ 
+            // Efecto para mostrar el modal de login si no está autenticado 
+            useEffect(() => { 
+                if (!isAuthenticated) { 
+                    setShowLoginModal(true); 
+                } 
+            }, ); 
+ 
+            // Guarda los procedimientos en localStorage 
+            const saveToDatabase = (newProcedures) => { 
+                setProcedures(newProcedures); 
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(newProcedures)); 
+            }; 
+ 
+            // Muestra un mensaje Toast 
+            const showToast = (message, type = 'success') => { 
+                setToast({ message, type }); 
+            }; 
+ 
+            // Manejador de éxito de inicio de sesión 
+            const handleLoginSuccess = () => { 
+                setIsAuthenticated(true); 
+                setShowLoginModal(false); 
+            }; 
+ 
+            // Manejador de cierre de sesión 
+            const handleLogout = () => { 
+                localStorage.removeItem(AUTH_KEY); 
+                setIsAuthenticated(false); 
+                setShowLoginModal(true); 
+                showToast('Sesión cerrada', 'info'); 
+            }; 
+ 
+            // Guarda o actualiza un procedimiento SWS 
+            const handleSaveProcedure = (data, stayInView = false) => { 
+                const fullData = { 
+                    ...data, 
+                    id: data.id || Math.random().toString(36).substr(2, 9), // Genera ID si es nuevo 
+                    created_at: data.created_at || new Date().toISOString(), 
+                    updated_at: new Date().toISOString(), 
+                    estado: data.estado || ProcedureStatus.PENDIENTE, 
+                    pasos: data.pasos || , 
+                    ppe: data.ppe || , 
+                    herramientas: data.herramientas ||  
+                }; 
+                 
+                // Busca si el procedimiento ya existe 
+                const existsIdx = procedures.findIndex(p => p.id === fullData.id); 
+                const updatedList = existsIdx !== -1 
+                    ? procedures.map(p => p.id === fullData.id ? fullData : p) // Actualiza si existe 
+                    : ; // Añade al inicio si es nuevo 
+                 
+                saveToDatabase(updatedList); 
+                showToast(existsIdx !== -1 ? 'SWS actualizado correctamente' : 'SWS creado correctamente', 'success'); 
+                 
+                // Navega a la biblioteca o se queda en la vista actual 
+                if (!stayInView) { 
+                    setCurrentView('library'); 
+                    setSelectedProcedure(null); 
+                } 
+            }; 
+ 
+            // Elimina un procedimiento SWS 
+            const handleDeleteProcedure = (id, name) => { 
+                if (window.confirm(`⚠️ ¿ELIMINAR SWS?\n\n"${name}"\n\nEsta acción no se puede deshacer.`)) { 
+                    saveToDatabase(procedures.filter(p => p.id !== id)); 
+                    showToast('SWS eliminado correctamente', 'info'); 
+                } 
+            }; 
+ 
+            // Duplica un procedimiento SWS 
+            const handleDuplicateProcedure = (proc) => { 
+                const duplicated = { 
+                    ...proc, 
+                    id: Math.random().toString(36).substr(2, 9), // Nuevo ID para el duplicado 
+                    sws_id: `${proc.sws_id}-COPIA`, 
+                    descripcion: `${proc.descripcion} (Copia)`, 
+                    created_at: new Date().toISOString(), 
+                    updated_at: new Date().toISOString(), 
+                    estado: ProcedureStatus.PENDIENTE 
+                }; 
+                saveToDatabase(); // Añade el duplicado al inicio 
+                showToast('SWS duplicado correctamente', 'success'); 
+            }; 
+ 
+            // Simula la selección y procesamiento de un archivo PDF 
+            const handleFileSelect = (file) => { 
+                setIsProcessing(true); 
+                setTimeout(() => { 
+                    // Genera un SWS de ejemplo con datos del archivo (simulación) 
+                    const newSWS = { 
+                        id: Math.random().toString(36).substr(2, 9), 
+                        sws_id: 'SWS-AUTO-' + Math.floor(Math.random() * 1000), 
+                        descripcion: `SWS generado de ${file.name}`, 
+                        proposito: 'Propósito extraído del documento PDF (simulado)', 
+                        area: 'Detectado', 
+                        fecha: new Date().toISOString().split('T'), 
+                        tarea: 'Tarea automática', 
+                        ppe: , 
+                        herramientas: , 
+                        pasos: [ 
+                            { numero: 1, actividad: 'Paso 1 del PDF', descripcion: 'Descripción del primer paso', tiempo: '5 min', riesgos_especificos: 'Ninguno', momentos_verdad: 'Verificado' } 
+                        ], 
+                        created_at: new Date().toISOString(), 
+                        updated_at: new Date().toISOString(), 
+                        created_by: 'Sistema AI' 
+                    }; 
+                    setSelectedProcedure(newSWS); // Carga el SWS simulado en el formulario 
+                    setCurrentView('migrator'); // Navega a la vista del formulario 
+                    setIsProcessing(false); 
+                    showToast('SWS extraído (simulado) y cargado en el editor', 'info'); 
+                }, 2000); 
+            }; 
+ 
+            // Exporta todos los procedimientos a un archivo JSON 
+            const handleExportJSON = () => { 
+                const dataStr = JSON.stringify(procedures, null, 2); 
+                const dataBlob = new Blob(, { type: 'application/json' }); 
+                const url = URL.createObjectURL(dataBlob); 
+                const link = document.createElement('a'); 
+                link.href = url; 
+                link.download = `cemex-sws-export-${new Date().toISOString().split('T')}.json`; 
+                link.click(); 
+                showToast('Base de datos exportada correctamente', 'success'); 
+            }; 
+ 
+            // Importa procedimientos desde un archivo JSON 
+            const handleImportJSON = (e) => { 
+                const file = e.target.files?.; 
+                if (file) { 
+                    const reader = new FileReader(); 
+                    reader.onload = (event) => { 
+                        try { 
+                            const imported = JSON.parse(event.target?.result); 
+                            if (Array.isArray(imported)) { 
+                                saveToDatabase(imported); 
+                                showToast(`${imported.length} SWS importados correctamente`, 'success'); 
+                                setCurrentView('library'); // Navega a la biblioteca después de importar 
+                            } else { 
+                                throw new Error('El archivo JSON no contiene un array válido de SWS.'); 
+                            } 
+                        } catch (error) { 
+                            showToast(`Error al importar el archivo: ${error.message}`, 'error'); 
+                        } 
+                    }; 
+                    reader.readAsText(file); 
+                } 
+            }; 
+ 
+            // Filtra los procedimientos basados en el término de búsqueda y el estado 
+            const filteredProcedures = useMemo(() => { 
+                return procedures.filter(proc => { 
+                    const search = searchTerm.toLowerCase(); 
+                    const matchesSearch = (proc.descripcion || '').toLowerCase().includes(search) || 
+                                         (proc.sws_id || '').toLowerCase().includes(search) || 
+                                         (proc.area || '').toLowerCase().includes(search); 
+                    const matchesFilter = filterStatus === 'all' || proc.estado === filterStatus; 
+                    return matchesSearch && matchesFilter; 
+                }); 
+            }, ); 
+ 
+            // Calcula estadísticas para el dashboard 
+            const stats = { 
+                total: procedures.length, 
+                completed: procedures.filter(p => p.estado === ProcedureStatus.COMPLETADO).length, 
+                pending: procedures.filter(p => p.estado === ProcedureStatus.PENDIENTE).length, 
+                inProgress: procedures.filter(p => p.estado === ProcedureStatus.EN_PROCESO).length, 
+                today: procedures.filter(p => { 
+                    const today = new Date().toISOString().split('T'); 
+                    return p.created_at?.split('T') === today; 
+                }).length 
+            }; 
+ 
+            // Si el usuario no está autenticado, muestra el modal de login 
+            if (!isAuthenticated) { 
+                return <LoginModal isOpen={showLoginModal} onClose={() => setShowLoginModal(false)} onLoginSuccess={handleLoginSuccess} />; 
+            } 
+ 
+            // Renderiza la interfaz principal de la aplicación 
+            return ( 
+                <div className="min-h-screen bg-slate-100 flex flex-col"> 
+                    {/* Header principal de la aplicación */} 
+                    <header className="bg- text-white shadow-xl no-print"> 
+                        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center border-b border-white/5"> 
+                            <div className="flex items-center gap-3 cursor-pointer" onClick={() => setCurrentView('dashboard')}> 
+                                <div className="bg-orange-600 p-2 rounded-lg shadow-lg"> 
+                                    <icons.ShieldCheck className="h-5 w-5" /> 
+                                </div> 
+                                <span className="text-xl font-black tracking-tighter italic"> 
+                                    CEMEX <span className="text-orange-500">SWS</span> 
+                                </span> 
+                            </div> 
+                            <div className="flex gap-2 items-center"> 
+                                {/* Botones de navegación principal */} 
+                                <button onClick={() => { setCurrentView('dashboard'); setSelectedProcedure(null); }} 
+                                    className={`px-4 py-2 rounded-xl text-xs font-bold uppercase transition-all ${currentView === 'dashboard' ? 'bg-orange-600' : 'hover:bg-white/5 text-slate-400'}`}> 
+                                    Panel 
+                                </button> 
+                                <button onClick={() => { setCurrentView('library'); setSelectedProcedure(null); }} 
+                                    className={`px-4 py-2 rounded-xl text-xs font-bold uppercase transition-all ${currentView === 'library' ? 'bg-orange-600' : 'hover:bg-white/5 text-slate-400'}`}> 
+                                    Biblioteca 
+                                </button> 
+                                {/* Botón de cerrar sesión */} 
+                                <button onClick={handleLogout} 
+                                    className="px-4 py-2 rounded-xl text-xs font-bold uppercase transition-all hover:bg-red-500/50 text-red-400"> 
+                                    Salir 
+                                </button> 
+                            </div> 
+                        </div> 
+                        {/* Sub-header con título de la vista actual y acciones globales */} 
+                        <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-6"> 
+                            <div> 
+                                <h1 className="text-4xl font-black uppercase tracking-tight leading-none"> 
+                                    {currentView === 'dashboard' ? 'Control Operativo' : currentView === 'library' ? 'Biblioteca Central' : 'Nuevo Procedimiento SWS'} 
+                                </h1> 
+                                <p className="text-slate-400 font-bold text-xs uppercase tracking-widest mt-2 flex items-center gap-2"> 
+                                    <div className="w-8 h-0.5 bg-orange-600"></div> Excelencia Operacional CEMEX 
+                                </p> 
+                            </div> 
+                            <div className="flex gap-3"> 
+                                <button onClick={handleExportJSON} 
+                                    className="bg-slate-700 hover:bg-slate-600 text-white px-6 py-3 rounded-xl font-bold text-xs flex items-center gap-2 transition-all"> 
+                                    <icons.Download className="h-4 w-4" /> EXPORTAR 
+                                </button> 
+                                <button onClick={() => { setSelectedProcedure(null); setCurrentView('migrator'); }} 
+                                    className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-2xl font-black text-sm shadow-2xl flex items-center gap-2 transition-all active:scale-95"> 
+                                    <icons.PlusCircle className="h-5 w-5" /> NUEVO SWS 
+                                </button> 
+                            </div> 
+                        </div> 
+                    </header> 
+ 
+                    {/* Contenido principal de la aplicación */} 
+                    <main className="max-w-7xl mx-auto px-6 -mt-8 relative z-20 pb-20 w-full no-print"> 
+                        {/* Renderiza la vista actual según el estado `currentView` */} 
+                        {currentView === 'dashboard' && ( 
+                            <DashboardView  
+                                procedures={procedures}  
+                                stats={stats}  
+                                handleExportJSON={handleExportJSON}  
+                                handleImportJSON={handleImportJSON}  
+                                setCurrentView={setCurrentView}  
+                                setSelectedProcedure={setSelectedProcedure}  
+                            /> 
+                        )} 
+ 
+                        {currentView === 'library' && ( 
+                            <LibraryView  
+                                procedures={procedures}  
+                                filteredProcedures={filteredProcedures}  
+                                searchTerm={searchTerm}  
+                                setSearchTerm={setSearchTerm}  
+                                filterStatus={filterStatus}  
+                                setFilterStatus={setFilterStatus}  
+                                setCurrentView={setCurrentView}  
+                                setSelectedProcedure={setSelectedProcedure}  
+                                handleDeleteProcedure={handleDeleteProcedure}  
+                                handleDuplicateProcedure={handleDuplicateProcedure}  
+                                setProcedureToPreview={setProcedureToPreview}  
+                            /> 
+                        )} 
+ 
+                        {currentView === 'migrator' && ( 
+                            <div> 
+                                {selectedProcedure ? ( 
+                                    <FormularioStandardWork 
+                                        data={selectedProcedure} 
+                                        onSave={handleSaveProcedure} 
+                                        onCancel={() => { setSelectedProcedure(null); setCurrentView('library'); }} 
+                                    /> 
+                                ) : ( 
+                                    <div className="max-w-4xl mx-auto py-10"> 
+                                        <UploadZone onFileSelect={handleFileSelect} isProcessing={isProcessing} /> 
+                                        <div className="text-center mt-8"> 
+                                            <p className="text-slate-500 mb-4">o</p> 
+                                            <button onClick={() => setSelectedProcedure({ id: null, pasos: , ppe: , herramientas:  })} 
+                                                className="bg-slate-900 text-white px-8 py-4 rounded-2xl font-bold text-sm hover:bg-slate-800 transition-all"> 
+                                                Crear SWS Manualmente 
+                                            </button> 
+                                        </div> 
+                                    </div> 
+                                )} 
+                            </div> 
+                        )} 
+                    </main> 
+ 
+                    {/* Modal de Preview para Exportación de PDF (fuera del `main` para evitar conflictos de z-index) */} 
+                    {procedureToPreview && ( 
+                        <div className="fixed inset-0 z- bg-slate-900/95 flex flex-col no-print"> 
+                            <div className="bg-white border-b p-6 flex justify-between items-center"> 
+                                <h2 className="font-black text-slate-900 text-xl uppercase">Exportación SWS - {procedureToPreview.descripcion}</h2> 
+                                <div className="flex gap-3"> 
+                                    <button onClick={() => window.print()} className="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold text-sm flex items-center gap-2 hover:bg-blue-700"> 
+                                        <icons.Printer className="h-4 w-4" /> Imprimir 
+                                    </button> 
+                                    <button onClick={() => setProcedureToPreview(null)} className="p-4 bg-slate-100 text-slate-500 hover:text-slate-900 rounded-2xl"> 
+                                        <icons.X className="h-8 w-8" /> 
+                                    </button> 
+                                </div> 
+                            </div> 
+                            <div className="flex-1 overflow-y-auto bg-slate-800/50 p-10 flex justify-center custom-scrollbar"> 
+                                <VistaPreviewPDF data={procedureToPreview} /> 
+                            </div> 
+                        </div> 
+                    )} 
+ 
+                    {/* Notificaciones Toast */} 
+                    {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />} 
+                </div> 
+            ); 
+        }; 
+ 
+        // ==================== INICIO DE LA APLICACIÓN REACT ==================== 
+        // Usa ReactDOM.createRoot para React 18 
+        const root = ReactDOM.createRoot(document.getElementById('root')); 
+        root.render(<App />); 
+    </script> 
+</body> 
+</html> 
+```
